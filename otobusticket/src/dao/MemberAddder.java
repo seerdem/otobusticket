@@ -25,12 +25,12 @@ public class MemberAddder extends HttpServlet{
 			String email=(String)req.getAttribute("email");
 			String name=(String)req.getAttribute("name");
 			String password=(String)req.getAttribute("password");
-			sql="insert into uyekayit values("+"'"+email+"'"+","+"'"+password+"'"+", "+"'"+name+"'"+");";
+			sql="insert into uyebilgileri values("+"'"+email+"'"+","+"'"+password+"'"+", "+"'"+name+"'"+");";
 			System.out.println(sql);
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/uyeler?autoReconnect=true&useSSL=false","root","sameteray");
 			Statement state=conn.createStatement();
-			ResultSet rset=state.executeQuery("select * from uyekayit");
+			ResultSet rset=state.executeQuery("select * from uyebilgileri");
 			while(rset.next())
 			{	
 				if(rset.getString("email").equals(email))

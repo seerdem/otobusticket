@@ -35,7 +35,7 @@
 		</div>
 		<div class="collapse navbar-collapse" id="upmenu">
 			<ul class="nav navbar-nav" id="navbarontop">
-				<li class="active"><a href="#">Ana Sayfa</a> </li>
+				
 				
 				
 				<li>
@@ -45,14 +45,14 @@
 				</li>
                 
 				<li>
-                    <a href="#">Bilet Al</a>
+                    <a href="cookieservlet">Bilet Al</a>
                 </li>
                 
 			</ul>
 		</div>
 	</nav>
 </div>
-    
+   
 <!--_______________________________________ Carousel__________________________________ -->
 <div class="allcontain">
 	<div id="carousel-up" class="carousel slide" data-ride="carousel">
@@ -61,7 +61,7 @@
 				<img src="image/oldcar.jpg" alt="oldcar">
 			</div>
 			<div class="item">
-				<img src="image/porche.jpg" alt="porche">
+				<img src="image/porche.jpg" alt="porche">				
 				<div class="carousel-caption">
 					<h2>Porche</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur ,<br>
