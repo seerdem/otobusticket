@@ -30,6 +30,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 	String email=(String)req.getParameter("email");
 	String password=(String)req.getParameter("password");
 	if(email.equals("")|| password.equals("")) {
+		yon++;
 		req.setAttribute("durum", durum);
 		RequestDispatcher s1=req.getRequestDispatcher("login.jsp");
 		s1.forward(req, resp);
@@ -43,22 +44,26 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 				anlik=rset1.getString("email");
 				anlik1=rset1.getString("password");
 				if(anlik.equals(email)&& anlik1.equals(password))
-				{	Cookie email1=new Cookie("email",email);
-				yon++;
+				{	yon++;
+					System.out.println(yon);
+					Cookie email1=new Cookie("email",email);
+					req.setAttribute("kullaniciadi","E mail :"+"  "+ email);
 					resp.addCookie(email1);
 					req.setAttribute("durum","giris basarili");
 					RequestDispatcher yon2=req.getRequestDispatcher("welcome.jsp");
 					yon2.forward(req, resp);
 				}
-				if(yon==0)
-				{req.setAttribute("durum", "yanlis sifre veya email");
-					RequestDispatcher yon1=req.getRequestDispatcher("login.jsp");
-					yon1.forward(req, resp);
-				}
+				System.out.println(yon);
+				
 				
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+		}
+		if(yon==0)
+		{req.setAttribute("durum", "yanlis sifre veya email");
+			RequestDispatcher yon1=req.getRequestDispatcher("login.jsp");
+			yon1.forward(req, resp);
 		}
 		
 }}

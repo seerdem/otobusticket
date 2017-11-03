@@ -15,12 +15,17 @@
 	<link rel="stylesheet" type="text/css" href="style/mystyle.css">
 </head>
 <body>
+<% String kullaniciadi="";
+if(request.getAttribute("kullaniciadi")!=null)
+	kullaniciadi=(String)request.getAttribute("kullaniciadi");
+	%>
 <!-- Header -->
 <div class="allcontain">
 	<div class="header">
 			
 			<ul class="givusacall">
 				<li>bisey olursa ara : +905414106530 </li>
+				
 			</ul>
 			
 	</div>
@@ -46,6 +51,9 @@
                 
 				<li>
                     <a href="cookieservlet">Bilet Al</a>
+                </li>
+                <li>
+                	<a href="#"><%=kullaniciadi %></a>
                 </li>
                 
 			</ul>
@@ -75,5 +83,6 @@
 </div>
 <!-- ____________________Featured Section ______________________________--> 
     </div>
+    <% kullaniciadi=""; %>
 </body>
 </html>
