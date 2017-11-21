@@ -38,22 +38,25 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 		try {Class.forName("com.mysql.jdbc.Driver"); 
 		Connection conn1=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/uyeler?autoReconnect=true&useSSL=false","root","sameteray");
 		Statement state1=conn1.createStatement();
-		ResultSet rset1=state1.executeQuery("select * from uyebilgileri");	
+		ResultSet rset1=state1.executeQuery("select email,password from uyebilgileri");	
 			while(rset1.next())
-			{
+			{ 
 				anlik=rset1.getString("email");
 				anlik1=rset1.getString("password");
+				
+				
 				if(anlik.equals(email)&& anlik1.equals(password))
-				{	yon++;
-					System.out.println(yon);
+				{	
+					yon++;
+					
 					Cookie email1=new Cookie("email",email);
 					req.setAttribute("kullaniciadi","E mail :"+"  "+ email);
 					resp.addCookie(email1);
 					req.setAttribute("durum","giris basarili");
+					conn1.close();
 					RequestDispatcher yon2=req.getRequestDispatcher("welcome.jsp");
 					yon2.forward(req, resp);
 				}
-				System.out.println(yon);
 				
 				
 			}

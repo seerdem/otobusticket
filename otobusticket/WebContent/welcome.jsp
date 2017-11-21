@@ -53,6 +53,9 @@ if(request.getAttribute("kullaniciadi")!=null)
                     <a href="cookieservlet">Bilet Al</a>
                 </li>
                 <li>
+                    <a href="cookiecontroladmin">Admin Yetkileri</a>
+                </li>
+                <li>
                 	<a href="#"><%=kullaniciadi %></a>
                 </li>
                 

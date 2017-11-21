@@ -85,7 +85,11 @@ durum1=(String)request.getAttribute("durum1");
 <input type="text" placeholder="Email" name="email"/>
 <input type="text" placeholder="User"  name="name"/>
 <input type="password" placeholder="Password" name="password"/>
-<input type="password" placeholder="Confirm Password" name="confirm_password"/>
+
+<select name="cinsiyet">
+<option value="erkek">Erkek</option>
+   <option value="kadın">Kadın</option>
+</select>
 <input type="submit" value="SIGN UP"/>
 </form>
   </div>

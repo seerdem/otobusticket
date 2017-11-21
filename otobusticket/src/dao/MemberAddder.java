@@ -25,8 +25,8 @@ public class MemberAddder extends HttpServlet{
 			String email=(String)req.getAttribute("email");
 			String name=(String)req.getAttribute("name");
 			String password=(String)req.getAttribute("password");
-			sql="insert into uyebilgileri values("+"'"+email+"'"+","+"'"+password+"'"+", "+"'"+name+"'"+");";
-			System.out.println(sql);
+			String cinsiyet=(String)req.getAttribute("cinsiyet");
+			sql="insert into uyebilgileri values("+"'"+email+"'"+","+"'"+password+"'"+", "+"'"+name+"'"+",'"+cinsiyet+"'"+");";
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/uyeler?autoReconnect=true&useSSL=false","root","sameteray");
 			Statement state=conn.createStatement();
@@ -45,7 +45,9 @@ public class MemberAddder extends HttpServlet{
 				 else
 				 {
 					 state.executeUpdate(sql);
-						durum="kayıt basarili";
+					conn.close();	
+					 
+					 durum="kayıt basarili";
 						req.setAttribute("durum1", durum);
 						RequestDispatcher s3=req.getRequestDispatcher("login.jsp");
 						s3.forward(req, resp);

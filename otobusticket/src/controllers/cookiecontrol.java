@@ -29,18 +29,21 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		
 			for(Cookie den:cook)
 			{
+				
 				if(den.getName().equals("email"))
-				{	sayac++;
+				{	System.out.println("esitler");
+					sayac++;
 					response.sendRedirect("biletal.jsp");
 				}
-				else if(sayac==0)
-				{
-					request.setAttribute("durum3", "lütfen giriş yapınız");
-					RequestDispatcher welcome=request.getRequestDispatcher("welcome.jsp");
-					welcome.forward(request, response);
-				}
+				 
 			}
 			
 		}
+	if(sayac==0)
+	{
+		request.setAttribute("durum3", "lütfen giriş yapınız");
+		RequestDispatcher welcome=request.getRequestDispatcher("welcome.jsp");
+		welcome.forward(request, response);
+	}
 }
 }

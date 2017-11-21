@@ -23,10 +23,10 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 	String email=req.getParameter("email");
 	String name=req.getParameter("name");
 	String password=req.getParameter("password");
-	String confirm_password=req.getParameter("confirm_password");
+	String cinsiyet=req.getParameter("cinsiyet");
 	if(ekle==true)
 	{
-	if(email.equals("") ||name.equals("") ||password.equals("") ||confirm_password.equals("")) {
+	if(email.equals("") ||name.equals("") ||password.equals("")) {
 		try {
 				durum=" kayıt olurken bos alan girdiniz";
 				req.setAttribute("durum1", durum);
@@ -73,21 +73,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 		}
 		
 	}}
-	if(ekle==true)
-	{
-	if(password.equals(confirm_password)==false)
-	{	
-		try {
-			req.setAttribute("durum1", "paralolar eşleşmiyor tekrar dene");
-			RequestDispatcher s4=req.getRequestDispatcher("login.jsp");
-			s4.forward(req, resp);
-			ekle=false;
-		}
-		
-		 catch (Exception e) {
-				// TODO: handle exception
-			 e.printStackTrace();
-			}}}
+	
 	if(ekle==true)
 	{
 		if(password.length()<7)
@@ -110,6 +96,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 		req.setAttribute("email", email);
 		req.setAttribute("name", name);
 		req.setAttribute("password",password);
+		req.setAttribute("cinsiyet",cinsiyet);
 		RequestDispatcher s5=req.getRequestDispatcher("MembersAdder");
 		s5.forward(req, resp);
 
